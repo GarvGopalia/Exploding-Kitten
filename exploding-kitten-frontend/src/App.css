@@ -1,0 +1,129 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* App Container */
+  .App {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #ff6347; /* Tomato color */
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styles */
+  button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff4500; /* Darker shade of tomato */
+  }
+  
+  /* Input Field Styles */
+  input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  input:focus {
+    border-color: #ff6347; /* Focus border color */
+    outline: none;
+  }
+  
+  /* Game Screen Styles */
+  .game-screen {
+    margin-top: 30px;
+  }
+  
+  .card {
+    width: 100px;
+    height: 150px;
+    background-color: #ffebcd; /* Blanched Almond */
+    border-radius: 8px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Leaderboard Styles */
+  .leaderboard {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .leaderboard h2 {
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .leaderboard ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .leaderboard li {
+    font-size: 1.2rem;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+  }
+  
+  .leaderboard li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .App {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    button, input {
+      font-size: 1rem;
+    }
+  }
+  
