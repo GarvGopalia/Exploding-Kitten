@@ -1,12 +1,10 @@
-// src/components/GameScreen.js
-
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGame, drawCard } from '../store/gameSlice';
+import { startGame, drawCard, playAgain } from '../store/gameSlice';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
-  const { cards, drawnCards, gameStarted, username, gameOver, win, defuseCardUsed } = useSelector((state) => state.game);
+  const { cards, drawnCards, gameStarted, username, gameOver, win } = useSelector((state) => state.game);
 
   // Local state to handle the username input
   const [enteredUsername, setEnteredUsername] = useState('');
@@ -14,7 +12,7 @@ const GameScreen = () => {
   // Handler for starting the game
   const handleStartGame = () => {
     if (enteredUsername.trim()) {
-      dispatch(startGame(enteredUsername)); // Dispatch username when starting the game
+      dispatch(startGame(enteredUsername));
     } else {
       alert('Please enter a username!');
     }
@@ -23,6 +21,11 @@ const GameScreen = () => {
   // Handler for drawing a card
   const handleDrawCard = () => {
     dispatch(drawCard());
+  };
+
+  // Handler for playing again without asking for username
+  const handlePlayAgain = () => {
+    dispatch(playAgain());
   };
 
   return (
@@ -43,7 +46,18 @@ const GameScreen = () => {
         <div>
           <h2>Welcome, {username}!</h2>
           <h3>Cards Remaining: {cards.length}</h3>
-          <button onClick={handleDrawCard} disabled={gameOver}>Draw Card</button>
+          {!gameOver ? (
+            <button onClick={handleDrawCard}>Draw Card</button>
+          ) : (
+            <div>
+              {win ? (
+                <h3>Congratulations! You won the game!</h3>
+              ) : (
+                <h3>Game Over! You drew the Exploding Kitten card!</h3>
+              )}
+              <button onClick={handlePlayAgain}>Play Again</button>
+            </div>
+          )}
 
           <div>
             <h3>Drawn Cards:</h3>
@@ -53,13 +67,6 @@ const GameScreen = () => {
               ))}
             </ul>
           </div>
-
-          {gameOver && (
-            <div>
-              {win ? <h3>Congratulations! You won the game!</h3> : <h3>Game Over! Try again!</h3>}
-              {defuseCardUsed && !win && <h4>You used a Defuse card!</h4>}
-            </div>
-          )}
         </div>
       )}
     </div>
