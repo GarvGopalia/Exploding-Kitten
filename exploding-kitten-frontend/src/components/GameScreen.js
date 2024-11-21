@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame, drawCard, playAgain } from '../store/gameSlice';
+import './GameScreen.css';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
   const { cards, drawnCards, gameStarted, username, gameOver, win } = useSelector((state) => state.game);
-
+  
   // Local state to handle the username input
   const [enteredUsername, setEnteredUsername] = useState('');
-
+  
   // Handler for starting the game
   const handleStartGame = () => {
     if (enteredUsername.trim()) {
@@ -17,7 +18,7 @@ const GameScreen = () => {
       alert('Please enter a username!');
     }
   };
-
+  
   // Handler for drawing a card
   const handleDrawCard = () => {
     dispatch(drawCard());
@@ -28,8 +29,15 @@ const GameScreen = () => {
     dispatch(playAgain());
   };
 
+  // Handler for viewing the leaderboard
+  const handleLeaderboard = () => {
+    alert('Displaying leaderboard...');
+    // You can redirect to the leaderboard page or display it in a modal
+  };
+
   return (
-    <div>
+    <div className="container">
+      <button className="leaderboard-button" onClick={handleLeaderboard}>Leaderboard</button>
       <h1>Exploding Kitten Game</h1>
 
       {!gameStarted ? (
@@ -59,7 +67,7 @@ const GameScreen = () => {
             </div>
           )}
 
-          <div>
+          <div className="card-list">
             <h3>Drawn Cards:</h3>
             <ul>
               {drawnCards.map((card, index) => (

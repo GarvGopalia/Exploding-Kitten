@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchLeaderboard } from '../store/gameSlice'; // Updated to use the thunk from gameSlice.js
+import { fetchLeaderboard } from '../store/gameSlice'; 
 
 const Leaderboard = () => {
   const dispatch = useDispatch();
   const leaderboard = useSelector((state) => state.game.leaderboard);
   const loading = useSelector((state) => state.game.loading);
   const error = useSelector((state) => state.game.error);
-
+  
+  // Fetch leaderboard data on mount
   useEffect(() => {
     dispatch(fetchLeaderboard());
   }, [dispatch]);

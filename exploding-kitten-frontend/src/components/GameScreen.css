@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Game Container */
+  .container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 85vh; 
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+  }
+  
+  /* Header Styling */
+  h1 {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    color: #222;
+  }
+  
+  /* Draw Card Button Section */
+  .draw-card-button {
+    margin: 20px auto; 
+  }
+  
+  /* Input Field */
+  input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Buttons */
+  button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  /* Player Welcome Section */
+  h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+  }
+  
+  /* Card List Section */
+  .card-list {
+    margin-top: 20px;
+    height: auto; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .card-list h3 {
+    margin: 0 0 10px;
+  }
+  
+  .card-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .card-list li {
+    padding: 8px;
+    margin-bottom: 5px;
+    background: #e9ecef;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  /* Ensure drawn cards fill available space */
+  .card-list ul {
+    max-height: 100%; 
+    overflow: visible; 
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 600px) {
+    .container {
+      height: auto;
+      padding: 10px;
+    }
+  
+    input[type="text"] {
+      width: 100%;
+    }
+  
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
